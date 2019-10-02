@@ -9,9 +9,9 @@ cors = CORS(app, resources={"/generate": {"origins": "*"}})
 def index():
     return index_controller.index()
 
-@app.route('/tmp')
-def tmp():
-    return index_controller.tmp()
+@app.route('/playful-ai')
+def playful_ai():
+    return index_controller.playful_ai()
 
 @app.route('/predefined/<int:model_id>/<string:model_type>')
 def predefined(model_id, model_type):

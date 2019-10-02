@@ -14,9 +14,9 @@ def index():
 
     return render_template('index.html')
 
-def tmp():
+def playful_ai():
 
-    return render_template('tmp.html')
+    return render_template('playful_ai.html')
 
 def predefined(model_id, model_type):
 

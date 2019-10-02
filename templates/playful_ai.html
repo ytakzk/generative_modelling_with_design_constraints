@@ -4,11 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>AI Generative Modelling</title>
+    <title>Playful AI</title>
 
     <link rel="stylesheet" type="text/css" href="/static/css/reset.css">
     <link rel="stylesheet" type="text/css" href="/static/css/index.css?01">
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=M+PLUS+1p" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: "M PLUS 1p";
+        }    
+    </style>
 
 </head>
 <body>
@@ -44,30 +50,19 @@
                     </g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g></svg>   
                 </div>
         
-                <h1>AI Generative Modelling</h1>
-                <h2>reinforcement learning for object generation</h2>
-        
-                <div class="output_representation">
-        
-                    <p>Output representation</p>
-        
-                    <ul>
-                        <li class="selected" id="output_lego">LEGO</li>
-                        <li id="output_pipe">Pipe</li>
-                    </ul>
-        
-                </div>
+                <h1>Playful AI</h1>
+                <h2>強化学習による形態生成</h2>
         
                 <div class="custom_model">
         
-                    <p>Feed your model</p>
+                    <p>メッシュを選択</p>
                     <p class="caption">
-                        A mesh must be triangulated and the acceptable formats are obj, .off, .ply, .dae, or .stl. .
+                        メッシュは三角化の必要あり。対応フォーマット: obj, off, ply, dae, stl
                     </p>
 
                     <form>
                         <div class="form" id="dropzone">
-                            <label class="file_label" for="model">Choose a file or drag it here.</label>
+                            <label class="file_label" for="model">ファイルを選択するか</br>ドラッグして下さい。</label>
                             <input class="file" type="file" accept=".obj,.off,.ply,.dae,.stl" id="model" name="model">
                         </div>
                     </form>
@@ -76,7 +71,7 @@
         
                 <div class="predefined_models">
                     
-                    <p>Predefined models</p>
+                    <p>デフォルトのメッシュ</p>
         
                     <ul class="pre_models">
                         <li class="models" x-index=1><img src="/static/img/model_01.jpg" alt="model_01"></li>
@@ -97,7 +92,7 @@
     </div>
 
     <div id="download" class="download">
-        <p>download this model</p>
+        <p>メッシュをダウンロード</p>
     </div>
 
     <div id="spinner" class="sk-cube-grid">
