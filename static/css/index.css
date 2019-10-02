@@ -26,7 +26,7 @@ h2 {
     position: absolute;
     left: 20px;
     top: 20px;
-    bottom: 60px;
+    bottom: 20px;
     transition: transform 0.1s ease-out;
     box-sizing: border-box;
     overflow-y: scroll;
