@@ -7,9 +7,8 @@
     <title>AI Generative Modelling</title>
 
     <link rel="stylesheet" type="text/css" href="/static/css/reset.css">
-    <link rel="stylesheet" type="text/css" href="/static/css/index.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/index.css?01">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,800&display=swap" rel="stylesheet">
-
 
 </head>
 <body>
@@ -95,6 +94,10 @@
 
     </div>
 
+    <div id="download" class="download">
+        <p>download this model</p>
+    </div>
+
     <div id="spinner" class="sk-cube-grid">
         <div class="sk-cube sk-cube1"></div>
         <div class="sk-cube sk-cube2"></div>
@@ -110,6 +113,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/109/three.min.js" integrity="sha256-Wua0LsQkGDEeIkbmBNjj9wcThJh5uCD6R8+5YQhXveQ=" crossorigin="anonymous"></script>
     <script src="/static/js/lib/OrbitControls.js"></script>
     <script src="/static/js/lib/OBJLoader.js"></script>
+    <script src="/static/js/lib/OBJExporter.js"></script>
     <script src="/static/js/renderer.js"></script>
     <script src="/static/js/api.js"></script>
 
@@ -155,7 +159,8 @@
             var open = document.getElementById('open');
             var output_lego = document.getElementById('output_lego');
             var output_pipe = document.getElementById('output_pipe');
-    
+            var download = document.getElementById('download');
+
             model.addEventListener('change', function(event) {
                 send(this.files);
             }, false);
@@ -187,11 +192,19 @@
     
             function close_menu() {
                 menu.style.transform = 'translate(-500px, 0)';
+                download.style.display = 'block';
             }
     
             function open_menu() {
                 menu.style.transform = 'translate(0, 0)';
+                download.style.display = 'none';
             }
+
+            download.addEventListener('click', function(event) {
+                
+                download_model();
+                
+            }, false);
     
             var type = 'lego';
     

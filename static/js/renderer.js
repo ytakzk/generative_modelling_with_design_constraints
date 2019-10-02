@@ -313,3 +313,25 @@ function build(dic, model_type) {
     camera.up.set( 0, 0, 1 );
 
 }
+
+function download_model() {
+
+    if (object == null) { return; }
+
+    var exporter = new THREE.OBJExporter();
+    var data = exporter.parse(object);
+    var filename = 'model.obj';
+    
+    var blob = new Blob([data], {type: 'text/csv'});
+    if(window.navigator.msSaveOrOpenBlob) {
+        window.navigator.msSaveBlob(blob, filename);
+    }
+    else{
+        var elem = window.document.createElement('a');
+        elem.href = window.URL.createObjectURL(blob);
+        elem.download = filename;        
+        document.body.appendChild(elem);
+        elem.click();        
+        document.body.removeChild(elem);
+    }
+}

@@ -13,12 +13,18 @@ function api_post_generate(files, type) {
 
         spinner.style.display = 'none';
 
+        if (request.response == null) {
+            alert('The mesh is not compatible with this system or the server is down. Try it again later.');
+            return;
+        }
+
         if (request.response['error']) {
             alert(request.response['error']);
         } else {
             build(request.response['result'], request.response['model_type']);
         }
     });
+
 
     request.upload.addEventListener('progress', function(e) {
         var percent_complete = (e.loaded / e.total) * 100;                
@@ -40,6 +46,11 @@ function api_get_predefined(index, type) {
     request.addEventListener('load', function(e) {
 
         spinner.style.display = 'none';
+
+        if (request.response == null) {
+            alert('The mesh is not compatible with this system or the server is down. Try it again later.');
+            return;
+        }
 
         if (request.response['error']) {
             alert(request.response['error']);
