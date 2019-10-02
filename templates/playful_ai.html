@@ -154,8 +154,6 @@
             var menu = document.getElementById('menu');
             var close = document.getElementById('close');
             var open = document.getElementById('open');
-            var output_lego = document.getElementById('output_lego');
-            var output_pipe = document.getElementById('output_pipe');
             var download = document.getElementById('download');
 
             model.addEventListener('change', function(event) {
@@ -204,42 +202,6 @@
             }, false);
     
             var type = 'lego';
-    
-            output_lego.addEventListener('click', function(event) {
-    
-                if (type == 'lego') { return; }
-                
-                output_lego.className = 'selected';
-                output_pipe.className = '';
-                type = 'lego';
-    
-                if (typeof prev_data == 'number') {
-                    api_get_predefined(prev_data, type);
-                } else {
-                    api_post_generate(prev_data, type);
-                }
-    
-                close_menu();
-    
-            }, false);
-    
-            output_pipe.addEventListener('click', function(event) {
-                
-                if (type == 'voxel') { return; }
-    
-                output_lego.className = '';
-                output_pipe.className = 'selected';
-                type = 'voxel';
-    
-                if (typeof prev_data == 'number') {
-                    api_get_predefined(prev_data, type);
-                } else {
-                    api_post_generate(prev_data, type);
-                }
-    
-                open_menu();
-    
-            }, false);
     
             var prev_data = 6;
             api_get_predefined(prev_data, type);
