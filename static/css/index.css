@@ -1,0 +1,212 @@
+html, body {
+    height: 100%;
+}
+
+body {
+    color: black;
+    font-family: 'Open Sans', sans-serif;
+    position: relative;
+    font-size: 14px;
+}
+
+h1 {
+    padding-bottom: 10px;
+    font-weight: 800;
+}
+
+h2 {
+    font-weight: 600;
+}
+
+.menu {
+    background: #fffb00;
+    max-width: 280px;
+    width: 100%;
+    border-radius: 2px;
+    position: absolute;
+    left: 20px;
+    top: 20px;
+    bottom: 60px;
+    transition: transform 0.1s ease-out;
+    box-sizing: border-box;
+    overflow-y: scroll;
+}
+
+.menu_inner {
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.form {
+    border: 1px solid white;
+    background: #ffe600;
+    text-align: center;
+    line-height: 25px;
+    margin-top: 15px;
+}
+
+.file {
+    display: none;
+} 
+
+.file_label {
+    cursor: pointer;
+    padding: 28px 20px;
+    display: block;
+    font-size: 0.9rem;
+}
+
+.caption {
+    padding-top: 8px;
+    font-size: 0.8rem;
+    line-height: 1.0rem;
+}
+
+.sk-cube-grid {
+    width: 40px;
+    height: 40px;
+    margin: 0 auto;
+    position: absolute;
+    top: 48%;
+    left: 50%;
+    -webkit-transform : translate(-50%,-50%);
+    transform : translate(-50%,-50%);
+    display: none;                  
+}
+
+.sk-cube-grid .sk-cube {
+    width: 33%;
+    height: 33%;
+    background-color: #ffe600;
+    float: left;
+    -webkit-animation: sk-cubeGridScaleDelay 1.3s infinite ease-in-out;
+            animation: sk-cubeGridScaleDelay 1.3s infinite ease-in-out; 
+}
+.sk-cube-grid .sk-cube1 {
+    -webkit-animation-delay: 0.2s;
+            animation-delay: 0.2s; }
+.sk-cube-grid .sk-cube2 {
+    -webkit-animation-delay: 0.3s;
+            animation-delay: 0.3s; }
+.sk-cube-grid .sk-cube3 {
+    -webkit-animation-delay: 0.4s;
+            animation-delay: 0.4s; }
+.sk-cube-grid .sk-cube4 {
+    -webkit-animation-delay: 0.1s;
+            animation-delay: 0.1s; }
+.sk-cube-grid .sk-cube5 {
+    -webkit-animation-delay: 0.2s;
+            animation-delay: 0.2s; }
+.sk-cube-grid .sk-cube6 {
+    -webkit-animation-delay: 0.3s;
+            animation-delay: 0.3s; }
+.sk-cube-grid .sk-cube7 {
+    -webkit-animation-delay: 0s;
+            animation-delay: 0s; }
+.sk-cube-grid .sk-cube8 {
+    -webkit-animation-delay: 0.1s;
+            animation-delay: 0.1s; }
+.sk-cube-grid .sk-cube9 {
+    -webkit-animation-delay: 0.2s;
+            animation-delay: 0.2s; }
+
+@-webkit-keyframes sk-cubeGridScaleDelay {
+    0%, 70%, 100% {
+        -webkit-transform: scale3D(1, 1, 1);
+                transform: scale3D(1, 1, 1);
+    } 35% {
+        -webkit-transform: scale3D(0, 0, 1);
+                transform: scale3D(0, 0, 1); 
+    }
+}
+
+@keyframes sk-cubeGridScaleDelay {
+    0%, 70%, 100% {
+        -webkit-transform: scale3D(1, 1, 1);
+                transform: scale3D(1, 1, 1);
+    } 35% {
+        -webkit-transform: scale3D(0, 0, 1);
+                transform: scale3D(0, 0, 1);
+    } 
+}
+
+.output_representation, .predefined_models, .custom_model, footer {
+    padding-top: 20px;
+    margin-top: 20px; 
+    border-top: 1px dashed #666;
+}
+
+.output_representation ul {
+    width: 100%;
+    display: flex;
+    border: 2px solid white;
+    border-radius: 2px;
+    margin-top: 20px;
+}
+
+.output_representation li {
+    display: block; 
+    width: 50%;   
+    text-align: center;
+    padding: 20px 0;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
+.output_representation li:first-child {
+    border-right: 2px solid white;
+}
+
+.output_representation .selected {
+    background: white;
+}
+
+.pre_models {
+    display: flex;
+    flex-wrap: wrap;
+    padding-top: 10px; 
+}
+
+.pre_models li {
+    width: 33%;
+    display: block;
+    padding: 5px;
+    box-sizing: border-box;
+}
+
+.pre_models img {
+    width: 100%;
+    display: block;
+    cursor: pointer;
+}
+
+footer {
+    color: #333;
+    font-size: 0.8rem;
+}
+
+footer a {
+    text-decoration: none;
+    color: rgb(66, 170, 255);
+}
+
+.close {
+    width: 18px;
+    height: 18px;
+    padding: 0 10px 10px 10px 0;
+    margin-bottom: 20px;
+    cursor: pointer;
+}
+
+.close svg {
+    color: #999;
+}
+
+.open {
+    position: absolute;
+    left: 40px;
+    top: 36px;
+    width: 12px;
+    height: 12px;
+    cursor: pointer;
+}

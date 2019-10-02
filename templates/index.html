@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>AI Generative Modelling</title>
+
+    <link rel="stylesheet" type="text/css" href="/static/css/reset.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/index.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,800&display=swap" rel="stylesheet">
+
+
+</head>
+<body>
+
+    <div class="open" id="open"">
+
+        <?xml version="1.0" encoding="iso-8859-1"?>
+        <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+        <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                width="24.75px" height="24.75px" viewBox="0 0 24.75 24.75" style="enable-background:new 0 0 24.75 24.75;" xml:space="preserve"
+            >
+        <g>
+            <path d="M0,3.875c0-1.104,0.896-2,2-2h20.75c1.104,0,2,0.896,2,2s-0.896,2-2,2H2C0.896,5.875,0,4.979,0,3.875z M22.75,10.375H2
+                c-1.104,0-2,0.896-2,2c0,1.104,0.896,2,2,2h20.75c1.104,0,2-0.896,2-2C24.75,11.271,23.855,10.375,22.75,10.375z M22.75,18.875H2
+                c-1.104,0-2,0.896-2,2s0.896,2,2,2h20.75c1.104,0,2-0.896,2-2S23.855,18.875,22.75,18.875z"/>
+        </g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g></svg>   
+
+    </div>
+    
+    <div class="menu" id="menu">
+
+        <div class="menu_inner">
+
+            <div id="close" class="close">
+                    <?xml version="1.0" encoding="iso-8859-1"?>
+                    <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                            viewBox="0 0 47.971 47.971" style="enable-background:new 0 0 47.971 47.971;" xml:space="preserve">
+                    <g>
+                        <path d="M28.228,23.986L47.092,5.122c1.172-1.171,1.172-3.071,0-4.242c-1.172-1.172-3.07-1.172-4.242,0L23.986,19.744L5.121,0.88
+                            c-1.172-1.172-3.07-1.172-4.242,0c-1.172,1.171-1.172,3.071,0,4.242l18.865,18.864L0.879,42.85c-1.172,1.171-1.172,3.071,0,4.242
+                            C1.465,47.677,2.233,47.97,3,47.97s1.535-0.293,2.121-0.879l18.865-18.864L42.85,47.091c0.586,0.586,1.354,0.879,2.121,0.879
+                            s1.535-0.293,2.121-0.879c1.172-1.171,1.172-3.071,0-4.242L28.228,23.986z"/>
+                    </g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g></svg>   
+                </div>
+        
+                <h1>AI Generative Modelling</h1>
+                <h2>reinforcement learning for object generation</h2>
+        
+                <div class="output_representation">
+        
+                    <p>Output representation</p>
+        
+                    <ul>
+                        <li class="selected" id="output_lego">LEGO</li>
+                        <li id="output_pipe">Pipe</li>
+                    </ul>
+        
+                </div>
+        
+                <div class="custom_model">
+        
+                    <p>Feed your model</p>
+                    <p class="caption">Compatible with obj, .off, .ply, .dae, or .stl.</p>
+        
+                    <form>
+                        <div class="form" id="dropzone">
+                            <label class="file_label" for="model">Choose a file or drag it here.</label>
+                            <input class="file" type="file" accept=".obj,.off,.ply,.dae,.stl" id="model" name="model">
+                        </div>
+                    </form>
+        
+                </div>
+        
+                <div class="predefined_models">
+                    
+                    <p>Predefined models</p>
+        
+                    <ul class="pre_models">
+                        <li class="models" x-index=1><img src="/static/img/model_01.jpg" alt="model_01"></li>
+                        <li class="models" x-index=2><img src="/static/img/model_02.jpg" alt="model_02"></li>
+                        <li class="models" x-index=3><img src="/static/img/model_03.jpg" alt="model_03"></li>
+                        <li class="models" x-index=4><img src="/static/img/model_04.jpg" alt="model_04"></li>
+                        <li class="models" x-index=5><img src="/static/img/model_05.jpg" alt="model_05"></li>
+                        <li class="models" x-index=6><img src="/static/img/model_06.jpg" alt="model_06"></li>
+                    </ul>
+                </div>
+        
+                <footer>
+                    Developed by <a href="https://github.com/ytakzk" target="_blank">ytakzk</a>, 2019.
+                </footer>
+
+        </div>
+
+    </div>
+
+    <div id="spinner" class="sk-cube-grid">
+        <div class="sk-cube sk-cube1"></div>
+        <div class="sk-cube sk-cube2"></div>
+        <div class="sk-cube sk-cube3"></div>
+        <div class="sk-cube sk-cube4"></div>
+        <div class="sk-cube sk-cube5"></div>
+        <div class="sk-cube sk-cube6"></div>
+        <div class="sk-cube sk-cube7"></div>
+        <div class="sk-cube sk-cube8"></div>
+        <div class="sk-cube sk-cube9"></div>
+      </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/109/three.min.js" integrity="sha256-Wua0LsQkGDEeIkbmBNjj9wcThJh5uCD6R8+5YQhXveQ=" crossorigin="anonymous"></script>
+    <script src="/static/js/lib/OrbitControls.js"></script>
+    <script src="/static/js/lib/OBJLoader.js"></script>
+    <script src="/static/js/renderer.js"></script>
+    <script src="/static/js/api.js"></script>
+
+    <script>
+
+        function send(files) {
+
+            var extensions = ['obj', 'off', 'ply' , 'dae' , 'stl'];
+
+            var names = files[0].name.split('.');
+            var extension = names[names.length - 1]; 
+
+            if (!extensions.includes(extension)) {
+                alert('The model must be obj, off, ply, dae, or stl.');
+            }
+            close_menu();
+            api_post_generate(files, type);
+            prev_data = files;
+        }
+
+        function handleFileSelect(evt) {
+            evt.stopPropagation();
+            evt.preventDefault();
+            send(evt.dataTransfer.files);
+        }
+            
+        function handleDragOver(evt) {
+            evt.stopPropagation();
+            evt.preventDefault();
+            evt.dataTransfer.dropEffect = 'copy';
+        }
+            
+        var dropZone = document.getElementById('dropzone');
+        dropZone.addEventListener('dragover', handleDragOver, false);
+        dropZone.addEventListener('drop', handleFileSelect, false);
+        
+        var model = document.getElementById('model');
+        var spinnner = document.getElementById('spinner');
+        var menu = document.getElementById('menu');
+        var close = document.getElementById('close');
+        var open = document.getElementById('open');
+        var output_lego = document.getElementById('output_lego');
+        var output_pipe = document.getElementById('output_pipe');
+
+        model.addEventListener('change', function(event) {
+            send(this.files);
+        }, false);
+
+        var models = document.getElementsByClassName('models');
+
+        for (var i = 0; i < models.length; i++) {
+            models[i].addEventListener('click', function(event) {
+
+                close_menu();
+                var index = parseInt(this.getAttribute("x-index"));
+                prev_data = index;
+                api_get_predefined(index, type);
+                
+            }, false);
+        }
+
+        close.addEventListener('click', function(event) {
+            
+            close_menu();
+            
+        }, false);
+
+        open.addEventListener('click', function(event) {
+            
+            open_menu();
+            
+        }, false);
+
+        function close_menu() {
+            menu.style.transform = 'translate(-500px, 0)';
+        }
+
+        function open_menu() {
+            menu.style.transform = 'translate(0, 0)';
+        }
+
+        var type = 'lego';
+
+        output_lego.addEventListener('click', function(event) {
+
+            if (type == 'lego') { return; }
+            
+            output_lego.className = 'selected';
+            output_pipe.className = '';
+            type = 'lego';
+
+            if (typeof prev_data == 'number') {
+                api_get_predefined(prev_data, type);
+            } else {
+                api_post_generate(prev_data, type);
+            }
+
+            close_menu();
+
+        }, false);
+
+        output_pipe.addEventListener('click', function(event) {
+            
+            if (type == 'voxel') { return; }
+
+            output_lego.className = '';
+            output_pipe.className = 'selected';
+            type = 'voxel';
+
+            if (typeof prev_data == 'number') {
+                api_get_predefined(prev_data, type);
+            } else {
+                api_post_generate(prev_data, type);
+            }
+
+            open_menu();
+
+        }, false);
+
+        var prev_data = 6;
+        api_get_predefined(prev_data, type);
+
+    </script>
+
+</body>
+</html>
