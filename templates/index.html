@@ -115,122 +115,126 @@
 
     <script>
 
-        function send(files) {
+        (function () {
 
-            var extensions = ['obj', 'off', 'ply' , 'dae' , 'stl'];
+            function send(files) {
 
-            var names = files[0].name.split('.');
-            var extension = names[names.length - 1]; 
-
-            if (!extensions.includes(extension)) {
-                alert('The model must be obj, off, ply, dae, or stl.');
-            }
-            close_menu();
-            api_post_generate(files, type);
-            prev_data = files;
-        }
-
-        function handleFileSelect(evt) {
-            evt.stopPropagation();
-            evt.preventDefault();
-            send(evt.dataTransfer.files);
-        }
-            
-        function handleDragOver(evt) {
-            evt.stopPropagation();
-            evt.preventDefault();
-            evt.dataTransfer.dropEffect = 'copy';
-        }
-            
-        var dropZone = document.getElementById('dropzone');
-        dropZone.addEventListener('dragover', handleDragOver, false);
-        dropZone.addEventListener('drop', handleFileSelect, false);
-        
-        var model = document.getElementById('model');
-        var spinnner = document.getElementById('spinner');
-        var menu = document.getElementById('menu');
-        var close = document.getElementById('close');
-        var open = document.getElementById('open');
-        var output_lego = document.getElementById('output_lego');
-        var output_pipe = document.getElementById('output_pipe');
-
-        model.addEventListener('change', function(event) {
-            send(this.files);
-        }, false);
-
-        var models = document.getElementsByClassName('models');
-
-        for (var i = 0; i < models.length; i++) {
-            models[i].addEventListener('click', function(event) {
-
+                var extensions = ['obj', 'off', 'ply' , 'dae' , 'stl'];
+    
+                var names = files[0].name.split('.');
+                var extension = names[names.length - 1]; 
+    
+                if (!extensions.includes(extension)) {
+                    alert('The model must be obj, off, ply, dae, or stl.');
+                }
                 close_menu();
-                var index = parseInt(this.getAttribute("x-index"));
-                prev_data = index;
-                api_get_predefined(index, type);
+                api_post_generate(files, type);
+                prev_data = files;
+            }
+    
+            function handleFileSelect(evt) {
+                evt.stopPropagation();
+                evt.preventDefault();
+                send(evt.dataTransfer.files);
+            }
+                
+            function handleDragOver(evt) {
+                evt.stopPropagation();
+                evt.preventDefault();
+                evt.dataTransfer.dropEffect = 'copy';
+            }
+                
+            var dropZone = document.getElementById('dropzone');
+            dropZone.addEventListener('dragover', handleDragOver, false);
+            dropZone.addEventListener('drop', handleFileSelect, false);
+            
+            var model = document.getElementById('model');
+            var spinnner = document.getElementById('spinner');
+            var menu = document.getElementById('menu');
+            var close = document.getElementById('close');
+            var open = document.getElementById('open');
+            var output_lego = document.getElementById('output_lego');
+            var output_pipe = document.getElementById('output_pipe');
+    
+            model.addEventListener('change', function(event) {
+                send(this.files);
+            }, false);
+    
+            var models = document.getElementsByClassName('models');
+    
+            for (var i = 0; i < models.length; i++) {
+                models[i].addEventListener('click', function(event) {
+    
+                    close_menu();
+                    var index = parseInt(this.getAttribute("x-index"));
+                    prev_data = index;
+                    api_get_predefined(index, type);
+                    
+                }, false);
+            }
+    
+            close.addEventListener('click', function(event) {
+                
+                close_menu();
                 
             }, false);
-        }
-
-        close.addEventListener('click', function(event) {
-            
-            close_menu();
-            
-        }, false);
-
-        open.addEventListener('click', function(event) {
-            
-            open_menu();
-            
-        }, false);
-
-        function close_menu() {
-            menu.style.transform = 'translate(-500px, 0)';
-        }
-
-        function open_menu() {
-            menu.style.transform = 'translate(0, 0)';
-        }
-
-        var type = 'lego';
-
-        output_lego.addEventListener('click', function(event) {
-
-            if (type == 'lego') { return; }
-            
-            output_lego.className = 'selected';
-            output_pipe.className = '';
-            type = 'lego';
-
-            if (typeof prev_data == 'number') {
-                api_get_predefined(prev_data, type);
-            } else {
-                api_post_generate(prev_data, type);
+    
+            open.addEventListener('click', function(event) {
+                
+                open_menu();
+                
+            }, false);
+    
+            function close_menu() {
+                menu.style.transform = 'translate(-500px, 0)';
             }
-
-            close_menu();
-
-        }, false);
-
-        output_pipe.addEventListener('click', function(event) {
-            
-            if (type == 'voxel') { return; }
-
-            output_lego.className = '';
-            output_pipe.className = 'selected';
-            type = 'voxel';
-
-            if (typeof prev_data == 'number') {
-                api_get_predefined(prev_data, type);
-            } else {
-                api_post_generate(prev_data, type);
+    
+            function open_menu() {
+                menu.style.transform = 'translate(0, 0)';
             }
+    
+            var type = 'lego';
+    
+            output_lego.addEventListener('click', function(event) {
+    
+                if (type == 'lego') { return; }
+                
+                output_lego.className = 'selected';
+                output_pipe.className = '';
+                type = 'lego';
+    
+                if (typeof prev_data == 'number') {
+                    api_get_predefined(prev_data, type);
+                } else {
+                    api_post_generate(prev_data, type);
+                }
+    
+                close_menu();
+    
+            }, false);
+    
+            output_pipe.addEventListener('click', function(event) {
+                
+                if (type == 'voxel') { return; }
+    
+                output_lego.className = '';
+                output_pipe.className = 'selected';
+                type = 'voxel';
+    
+                if (typeof prev_data == 'number') {
+                    api_get_predefined(prev_data, type);
+                } else {
+                    api_post_generate(prev_data, type);
+                }
+    
+                open_menu();
+    
+            }, false);
+    
+            var prev_data = 6;
+            api_get_predefined(prev_data, type);
 
-            open_menu();
-
-        }, false);
-
-        var prev_data = 6;
-        api_get_predefined(prev_data, type);
+        }());
 
     </script>
 
