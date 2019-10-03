@@ -213,7 +213,9 @@
             output_lego.addEventListener('click', function(event) {
     
                 if (type == 'lego') { return; }
-                
+
+                close_menu();
+
                 output_lego.className = 'selected';
                 output_pipe.className = '';
                 type = 'lego';
@@ -223,15 +225,15 @@
                 } else {
                     api_post_generate(prev_data, type);
                 }
-    
-                close_menu();
-    
+        
             }, false);
     
             output_pipe.addEventListener('click', function(event) {
                 
                 if (type == 'voxel') { return; }
     
+                close_menu();
+
                 output_lego.className = '';
                 output_pipe.className = 'selected';
                 type = 'voxel';
@@ -241,9 +243,7 @@
                 } else {
                     api_post_generate(prev_data, type);
                 }
-    
-                open_menu();
-    
+        
             }, false);
     
             var prev_data = 6;
