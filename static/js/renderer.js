@@ -222,14 +222,24 @@ function generate_lego(dic) {
 
     plane.position.z = -average_z;
 
-    for (var i = 0; i < legos.length; i++) {
+    var index    = 0; 
+    function add() {
 
-        var lego = legos[i];
+        if (index >= legos.length - 1) {
+            clearInterval(interval);
+            return;
+        }
+
+        var lego = legos[index];
         lego.position.x -= average_x;
         lego.position.y -= average_y;
         lego.position.z -= average_z;
         object.add(lego);
+
+        index += 1;
     }
+    var interval = setInterval(add, 40);
+
     scene.add(object);
 }
 
@@ -277,6 +287,9 @@ function generate_pipe(dic) {
     var geometry = new THREE.TubeGeometry(path, 30, 0.2, 30, false);
     var material = new THREE.MeshPhongMaterial( { color: 0x666666, emissive: 0x000000 } );
     var mesh = new THREE.Mesh(geometry, material);
+
+    mesh.castShadow = true;
+    mesh.receiveShadow = true;
 
     plane.position.z = -average_z - 1;
 
